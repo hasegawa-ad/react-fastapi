@@ -3,8 +3,10 @@ services:
     build: ./backend
     ports:
       - "8000:8000"
+    volumes:
+      - ./data:/app/data
     environment:
-      - PYTHONUNBUFFERED=1
+      - DATABASE_URL=sqlite:///app/data/sql_app.db
 
   frontend:
     build: ./frontend
